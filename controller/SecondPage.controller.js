@@ -17,7 +17,7 @@ sap.ui.define([
             if (sPreviousHash) {
                 window.history.go(-1);
             } else {
-                var oRouter = Router.getRouter('appRouter'); // substitua 'appRouter' pelo nome do seu roteador definido no Component.js
+                var oRouter = Router.getRouter('app'); 
                 oRouter.navTo('main');
             }
         }

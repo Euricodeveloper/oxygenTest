@@ -67,15 +67,9 @@ sap.ui.define([
         },
         
         handleNavPress: function() {
-            var oView = this.getView();
-            var oSecondPage = oView.byId("secondPage");
-            
-            if (!oSecondPage) {
-                oSecondPage = sap.ui.xmlview({
-                    viewName: "my.app.view.SecondPage"
-                });
-                oView.addContent(oSecondPage);
-            }
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo('second');
         }
+        
     });
 });
