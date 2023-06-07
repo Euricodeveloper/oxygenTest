@@ -1,4 +1,3 @@
-var deletedProducts = [];
 sap.ui.define([
     'sap/ui/core/mvc/Controller',
     'sap/m/MessageToast'
@@ -9,6 +8,18 @@ sap.ui.define([
         handleNavPress: function() {
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo('second');
+        },
+
+        handleBackPress: function() {
+            var oHistory = History.getInstance();
+            var sPreviousHash = oHistory.getPreviousHash();
+
+            if (sPreviousHash !== undefined) {
+                window.history.go(-1);
+            } else {
+                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo('main', {}, true);
+            }
         },
 
         handleDelete: function(oEvent) {

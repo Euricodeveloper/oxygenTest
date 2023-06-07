@@ -1,46 +1,43 @@
 sap.ui.define([
     'sap/ui/core/UIComponent',
-    'sap/ui/model/json/JSONModel'
-], function(UIComponent, JSONModel) {
+], function(UIComponent) {
     'use strict';
 
     return UIComponent.extend('my.app.Component', {
         metadata: {
-            rootView: {
-                viewName: 'my.app.view.MainPage',
-                type: 'XML',
-                id: 'app'
-            }
-        },
-
-        init: function() {
-            UIComponent.prototype.init.apply(this, arguments);
-        
-            var oModel = new JSONModel();
-        
-            oModel.attachRequestCompleted(function() {
-                if (oModel.getProperty('/products')) {
-                    if (deletedProducts.length > 0) {
-                        var products = oModel.getProperty('/products');
-                        deletedProducts.forEach(function(deletedProduct) {
-                            var index = products.findIndex(function(product) {
-                                return product.id === deletedProduct.id;
-                            });
-                            if (index > -1) {
-                                products.splice(index, 1);
-                            }
-                        });
-                        oModel.setProperty('/products', products);
+            manifest: 'json',
+            routing: {
+                config: {
+                    routerClass: 'sap.m.routing.Router',
+                    viewType: 'XML',
+                    viewPath: 'my.app.view',
+                    controlId: 'app',
+                    controlAggregation: 'pages',
+                    async: true
+                },
+                routes: [
+                    {
+                        pattern: '',
+                        name: 'main',
+                        target: 'main'
+                    },
+                    {
+                        pattern: 'second',
+                        name: 'second',
+                        target: 'second'
                     }
-                    sap.ui.getCore().applyChanges();
-                } else {
-                    console.error('Falha ao carregar os dados do arquivo products.json');
+                ],
+                targets: {
+                    main: {
+                        viewName: 'MainPage',
+                        viewLevel: 1
+                    },
+                    second: {
+                        viewName: 'SecondPage',
+                        viewLevel: 2
+                    }
                 }
-            });
-        
-            oModel.loadData('products.json');
-        
-            this.setModel(oModel);
+            }
         }
         
     });

@@ -1,7 +1,8 @@
 sap.ui.define([
     'sap/ui/core/mvc/Controller',
-    'sap/ui/core/routing/History'
-], function(Controller, History) {
+    'sap/ui/core/routing/History',
+    'sap/ui/core/routing/Router'
+], function(Controller, History, Router) {
     'use strict';
 
     return Controller.extend('my.app.controller.SecondPage', {
@@ -16,8 +17,8 @@ sap.ui.define([
             if (sPreviousHash) {
                 window.history.go(-1);
             } else {
-                var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-                oRouter.navTo('main', {}, true);
+                var oRouter = Router.getRouter('appRouter'); // substitua 'appRouter' pelo nome do seu roteador definido no Component.js
+                oRouter.navTo('main');
             }
         }
     });
