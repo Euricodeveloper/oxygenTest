@@ -1,0 +1,45 @@
+<mvc:View
+xmlns:mvc="sap.ui.core.mvc"
+xmlns="sap.m"
+controllerName="my.app.controller.MainPage">
+<App xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout">
+    <Page title="Meu projeto">
+        <headerContent>
+            <core:Icon src="sap-icon://my-app-icon" size="2rem" />
+            <Text text="Teste Eurico Oliveira/NewOxygen" />
+            <Image src="images/oxygen.png" width="32px" height="32px" />
+        </headerContent>
+        <content>
+            <SearchField search="handleSearch" width="100%"/>
+            <Table id="table" items="{/products}">
+                <columns>
+                    <Column>
+                        <Text text="ID"/>
+                    </Column>
+                    <Column>
+                        <Text text="Name"/>
+                    </Column>
+                    <Column>
+                        <Text text="Price"/>
+                    </Column>
+                    <Column>
+                        <Text text="Action"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{id}"/>
+                            <Text text="{name}"/>
+                            <Text text="{price}"/>
+                            <Button icon="sap-icon://delete" press="handleDelete"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <Button text="Show Toast" press="handleToastPress"/>
+        </content>
+    </Page>
+</App>
+
+</mvc:View>

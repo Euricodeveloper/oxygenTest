@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "id": "P001",
+      "name": "Smartphone",
+      "price": 999.99
+    },
+    {
+      "id": "P002",
+      "name": "Laptop",
+      "price": 1499.99
+    },
+    {
+      "id": "P003",
+      "name": "Headphones",
+      "price": 149.99
+    },
+    {
+      "id": "P004",
+      "name": "Smart TV",
+      "price": 1999.99
+    },
+    {
+      "id": "P005",
+      "name": "Tablet",
+      "price": 599.99
+    },
+    {
+      "id": "P006",
+      "name": "Wireless Earbuds",
+      "price": 79.99
+    }
+  ]
+}

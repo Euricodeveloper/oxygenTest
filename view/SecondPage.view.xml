@@ -1,0 +1,7 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="my.app.controller.SecondPage">
+  <App>
+    <Page title="Second Page">
+      <Text text="This is the second page"/>
+    </Page>
+  </App>
+</mvc:View>

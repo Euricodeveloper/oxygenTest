@@ -1,0 +1,89 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+      "id": "my.app",
+      "type": "application",
+      "i18n": "i18n/i18n.properties",
+      "applicationVersion": {
+        "version": "1.0.0"
+      },
+      "title": "Meu Projeto UI5 Fiori",
+      "description": "Descrição do meu projeto UI5 Fiori",
+      "dataSources": {
+        "myProducts": {
+          "type": "JSON",
+          "uri": "products.json"
+        }
+      }
+    },
+    "sap.ui": {
+      "technology": "UI5",
+      "icons": {
+        "icon": "",
+        "favIcon": "",
+        "phone": "",
+        "phone@2": "",
+        "tablet": "",
+        "tablet@2": ""
+      }
+    },
+    "sap.ui5": {
+      "rootView": {
+        "viewName": "my.app.view.MainPage",
+        "type": "XML",
+        "id": "app"
+      },
+      "dependencies": {
+        "minUI5Version": "1.93.0",
+        "libs": {
+          "sap.ui.core": {},
+          "sap.m": {}
+        }
+      },
+      "models": {
+        "": {
+          "dataSource": "myProducts",
+          "preload": true
+        }
+      },
+      "resources": {
+        "css": [
+          {
+            "uri": "css/style.css"
+          }
+        ]
+      },
+      "routing": {
+        "config": {
+          "routerClass": "sap.m.routing.Router",
+          "viewType": "XML",
+          "viewPath": "my.app.view",
+          "controlAggregation": "pages",
+          "async": true
+        },
+        "routes": [
+          {
+            "name": "main",
+            "pattern": "",
+            "target": "main"
+          },
+          {
+            "name": "second",
+            "pattern": "second",
+            "target": "second"
+          }
+        ],
+        "targets": {
+          "main": {
+            "viewName": "MainPage",
+            "viewLevel": 1
+          },
+          "second": {
+            "viewName": "SecondPage",
+            "viewLevel": 2
+          }
+        }
+      }
+    }
+  }
+  
