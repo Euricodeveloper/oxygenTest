@@ -54,6 +54,17 @@ sap.ui.define([
         handleToastPress: function() {
             MessageToast.show('Nossa jornada está apenas começando!');
         },
-
+        
+        handleNavPress: function() {
+            var oView = this.getView();
+            var oSecondPage = oView.byId("secondPage");
+            
+            if (!oSecondPage) {
+                oSecondPage = sap.ui.xmlview({
+                    viewName: "my.app.view.SecondPage"
+                });
+                oView.addContent(oSecondPage);
+            }
+        }
     });
 });

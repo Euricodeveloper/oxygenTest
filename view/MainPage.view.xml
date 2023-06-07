@@ -38,6 +38,7 @@ controllerName="my.app.controller.MainPage">
                 </items>
             </Table>
             <Button text="Show Toast" press="handleToastPress"/>
+            <Button text="Go to Second Page" press="handleNavPress"/>
         </content>
     </Page>
 </App>
